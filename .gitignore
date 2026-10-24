@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+node_modules/
+devpost/learner-profile.md
+hyperframes-spot/.hyperframes/
+hyperframes-spot/*.wav
+hyperframes-spot/*.mp3
+public/audio/*.wav
+public/audio/*.mp3
