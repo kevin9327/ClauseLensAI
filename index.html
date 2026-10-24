@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClauseLens Studio — Everyday Contract Trap X-Ray & Stance-Calibrated Counter-Offer Studio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-wrap">
+      <div class="brand-logo">⚖️</div>
+      <div>
+        <div class="brand-kicker">BUILD WITH AI: BASICS ($2,500) · OFFICIAL LEARN-AI-BASICS 6-STAGE ARTIFACT</div>
+        <h1 class="brand-title">ClauseLens Studio <span class="badge-pill">Stance-Calibrated Contract X-Ray</span></h1>
+      </div>
+    </div>
+
+    <div class="kpi-strip">
+      <div class="kpi-chip">
+        <span class="kpi-label">CONTRACT FAIRNESS SCORE</span>
+        <span class="kpi-val emerald" id="kpi-fairness">94 / 100</span>
+      </div>
+      <div class="kpi-chip">
+        <span class="kpi-label">TRAPS DETECTED / REDLINED</span>
+        <span class="kpi-val amber" id="kpi-traps">4 / 4 Redlined</span>
+      </div>
+      <div class="kpi-chip">
+        <span class="kpi-label">EXPOSURE PROTECTED ($)</span>
+        <span class="kpi-val cyan" id="kpi-exposure">$14,800 Protected</span>
+      </div>
+      <a class="btn-outline" href="app-map.html" target="_blank">🗺️ Open App Map &amp; Code Tour</a>
+      <button class="btn-outline" id="btn-theme-toggle" type="button">🌗 Theme</button>
+    </div>
+  </header>
+
+  <section class="control-bar">
+    <div class="preset-group">
+      <label for="preset-select">1. SELECT CONTRACT PRESET:</label>
+      <select id="preset-select">
+        <option value="freelance-creator-msa">Preset 1: Creator &amp; Freelance Master Services Agreement ($12,000 · 4 Traps)</option>
+        <option value="residential-apartment-lease">Preset 2: Urban Residential Apartment Lease ($28,800/yr · 3 Traps)</option>
+        <option value="enterprise-saas-renewal">Preset 3: B2B AI SaaS Annual Subscription Order Form ($18,000/yr · 2 Traps)</option>
+      </select>
+    </div>
+
+    <div class="stance-group" id="stance-bar">
+      <span class="stance-label">2. NEGOTIATION STANCE SLIDER:</span>
+      <button class="stance-btn" data-stance="warm" type="button">🤝 Warm &amp; Collaborative</button>
+      <button class="stance-btn active" data-stance="balanced" type="button">⚖️ Balanced Market Standard</button>
+      <button class="stance-btn" data-stance="firm" type="button">🛡️ Firm Legal Boundary</button>
+    </div>
+  </section>
+
+  <main class="split-workspace">
+    <!-- LEFT PANE: VERBATIM CONTRACT X-RAY VIEWER -->
+    <section class="pane-card">
+      <div class="pane-header">
+        <div>
+          <span class="pane-kicker">VERBATIM CHARACTER-SPAN HIGHLIGHTER · CLICK ANY HIGHLIGHT TO INSPECT</span>
+          <h2 id="doc-title">Creator &amp; Freelance Master Services Agreement (MSA)</h2>
+        </div>
+        <span class="counterparty-tag" id="doc-counterparty">Counterparty: Apex Brand Studio LLC</span>
+      </div>
+      <div class="legend-row">
+        <span class="legend-dot rose">Critical / High Trap</span>
+        <span class="legend-dot emerald">Protected by Active Redline</span>
+      </div>
+      <div class="contract-document" id="contract-viewer"></div>
+    </section>
+
+    <!-- RIGHT PANE: 3-TAB NEGOTIATION STUDIO -->
+    <section class="pane-card">
+      <nav class="studio-tabs" role="tablist">
+        <button class="tab-btn active" data-tab="tab-redlines" type="button">01 · Red-Flag Clauses &amp; Stance Diffs</button>
+        <button class="tab-btn" data-tab="tab-email" type="button">02 · Ready-to-Send Counter-Offer Email</button>
+        <button class="tab-btn" data-tab="tab-custom" type="button">03 · Custom Contract Trap Scanner</button>
+      </nav>
+
+      <!-- TAB 1: REDLINE CARDS -->
+      <div class="tab-panel active" id="tab-redlines">
+        <div id="clauses-list" class="clauses-stack"></div>
+      </div>
+
+      <!-- TAB 2: COUNTER-OFFER EMAIL -->
+      <div class="tab-panel" id="tab-email">
+        <div class="email-actions">
+          <button class="btn-primary" id="btn-copy-email" type="button">📋 Copy Counter-Proposal Email &amp; Redline Rider</button>
+          <span class="copy-toast" id="copy-toast"></span>
+        </div>
+        <pre class="email-preview" id="counter-email-preview"></pre>
+      </div>
+
+      <!-- TAB 3: CUSTOM SCANNER -->
+      <div class="tab-panel" id="tab-custom">
+        <div class="custom-header">
+          <p>Paste any lease, freelance agreement, or SaaS renewal paragraph below to extract traps and generate 3-tier redlines:</p>
+          <button class="btn-outline" id="btn-load-sample-custom" type="button">⚡ Load Sample Trap Clause</button>
+        </div>
+        <textarea id="custom-contract-input" rows="7" placeholder="Paste contract clauses here..."></textarea>
+        <div class="custom-btn-row">
+          <button class="btn-primary" id="btn-analyze-custom" type="button">🔍 Run Contract X-Ray &amp; Generate Redlines</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
