@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClauseLens Studio — App Map & Interactive Code Tour (devpost/app-map.html)</title>
+  <style>
+    :root {
+      --bg: #090b10;
+      --card: #121621;
+      --elevated: #191f2e;
+      --border: #2a334b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --cyan: #06b6d4;
+      --mono: 'JetBrains Mono', Consolas, monospace;
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --elevated: #f1f5f9;
+      --border: #cbd5e1;
+      --text: #0f172a;
+      --muted: #475569;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      padding: 32px 24px 64px;
+    }
+    .container { max-width: 1180px; margin: 0 auto; }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    h1 { font-size: 28px; font-weight: 800; }
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 14px; color: var(--emerald); }
+    .btn {
+      background: var(--elevated);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .pieces-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .piece {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--cyan);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .piece h3 { font-size: 15px; margin-bottom: 6px; font-family: var(--mono); }
+    .piece p { font-size: 13.5px; color: var(--muted); }
+    ol.route {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+    ol.route li {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.15s ease;
+    }
+    ol.route li.active, ol.route li:hover {
+      border-color: var(--emerald);
+    }
+    .stop-title {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--amber);
+      margin-bottom: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    th { font-family: var(--mono); color: var(--muted); background: var(--elevated); }
+    code {
+      font-family: var(--mono);
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--emerald);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <div class="kicker">OFFICIAL LEARN-AI-BASICS SKILL 6-SHIP ARTIFACT · DEVPOST/APP-MAP.HTML</div>
+        <h1>ClauseLens Studio — Architecture & Code Tour Map</h1>
+      </div>
+      <div>
+        <button class="btn" id="theme-btn" type="button">Toggle Light / Dark Theme</button>
+      </div>
+    </header>
+
+    <!-- 1. THE PIECES -->
+    <section class="section-card">
+      <h2>1. The Pieces (How ClauseLens Studio Is Organized)</h2>
+      <div class="pieces-grid">
+        <div class="piece">
+          <h3>public/index.html</h3>
+          <p>Split-pane Contract X-Ray Viewer on the left and the 3-Tab Negotiation Studio (Redline Cards, Counter-Offer Email, Custom Scanner) on the right.</p>
+        </div>
+        <div class="piece">
+          <h3>public/app.js</h3>
+          <p>State store holding active preset, selected negotiation stance (<code>warm</code> | <code>balanced</code> | <code>firm</code>), accepted clause IDs, and live Fairness Score.</p>
+        </div>
+        <div class="piece">
+          <h3>backend/clause_engine.py</h3>
+          <p>Deterministic contract trap detector & stance-calibrated redline library covering IP Grabs, Silent Auto-Renewals, Late Fees, and Unilateral Termination.</p>
+        </div>
+        <div class="piece">
+          <h3>backend/server.py</h3>
+          <p>FastAPI service exposing <code>GET /api/presets</code>, <code>POST /api/analyze</code>, and static workbench hosting with automatic offline fallback.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. INLINE SVG DIAGRAM: HOW ONE ACTION TRAVELS -->
+    <section class="section-card">
+      <h2>2. How One Action Travels (Stance Slider → Redline Diff → Counter-Offer Email)</h2>
+      <svg viewBox="0 0 1060 170" width="100%" height="170" role="img" aria-label="ClauseLens Data Flow Diagram">
+        <rect x="10" y="25" width="220" height="115" rx="12" fill="#191f2e" stroke="#06b6d4" stroke-width="2"/>
+        <text x="26" y="58" fill="#06b6d4" font-family="monospace" font-size="13" font-weight="bold">STOP 1: UI Event</text>
+        <text x="26" y="84" fill="#f8fafc" font-family="sans-serif" font-size="13">User clicks "Firm Legal"</text>
+        <text x="26" y="106" fill="#94a3b8" font-family="monospace" font-size="11">public/index.html #stance-bar</text>
+
+        <path d="M 230 82 L 285 82" stroke="#10b981" stroke-width="3" marker-end="url(#arrow)"/>
+
+        <rect x="290" y="25" width="235" height="115" rx="12" fill="#191f2e" stroke="#10b981" stroke-width="2"/>
+        <text x="306" y="58" fill="#10b981" font-family="monospace" font-size="13" font-weight="bold">STOP 2: State Update</text>
+        <text x="306" y="84" fill="#f8fafc" font-family="sans-serif" font-size="13">setStance('firm') recomputes</text>
+        <text x="306" y="106" fill="#94a3b8" font-family="monospace" font-size="11">public/app.js :: renderRedlines()</text>
+
+        <path d="M 525 82 L 580 82" stroke="#10b981" stroke-width="3"/>
+
+        <rect x="585" y="25" width="225" height="115" rx="12" fill="#191f2e" stroke="#f59e0b" stroke-width="2"/>
+        <text x="601" y="58" fill="#f59e0b" font-family="monospace" font-size="13" font-weight="bold">STOP 3: Clause Engine</text>
+        <text x="601" y="84" fill="#f8fafc" font-family="sans-serif" font-size="13">Selects tier redline &amp; delta</text>
+        <text x="601" y="106" fill="#94a3b8" font-family="monospace" font-size="11">backend/clause_engine.py</text>
+
+        <path d="M 810 82 L 855 82" stroke="#10b981" stroke-width="3"/>
+
+        <rect x="860" y="25" width="190" height="115" rx="12" fill="#191f2e" stroke="#f43f5e" stroke-width="2"/>
+        <text x="874" y="58" fill="#f43f5e" font-family="monospace" font-size="13" font-weight="bold">STOP 4: Email Rider</text>
+        <text x="874" y="84" fill="#f8fafc" font-family="sans-serif" font-size="13">Fairness 34 → 94/100</text>
+        <text x="874" y="106" fill="#94a3b8" font-family="monospace" font-size="11">#counter-email-preview</text>
+      </svg>
+    </section>
+
+    <!-- 3. GUIDED CODE TOUR ROUTE STOPS -->
+    <section class="section-card">
+      <h2>3. Guided Code Tour Route Stops (Click Any Stop to Inspect)</h2>
+      <ol class="route" id="route-list">
+        <li class="active">
+          <div class="stop-title">Stop 1 · public/index.html (#contract-viewer &amp; #stance-selector)</div>
+          <p>Defines the split-pane layout where verbatim contract text on the left is paired with the 3-tier Negotiation Stance Selector (<code>Warm</code>, <code>Balanced</code>, <code>Firm</code>) and KPI telemetry strip.</p>
+        </li>
+        <li>
+          <div class="stop-title">Stop 2 · public/app.js (renderContractDocument &amp; computeMetrics)</div>
+          <p>Wraps each risky substring in a clickable <code>&lt;mark class="trap-span"&gt;</code> tag, computes the live Contract Fairness Score (<code>0–100</code>) and Protected Dollar Exposure (<code>$14,800</code>), and synchronizes redline toggles with <code>localStorage</code>.</p>
+        </li>
+        <li>
+          <div class="stop-title">Stop 3 · backend/clause_engine.py (PRESET_CONTRACTS &amp; analyze_custom_contract)</div>
+          <p>Holds the 3 real-world contract presets and the regex/heuristic trap scanner that identifies auto-renewals, pre-payment IP grabs, uncapped indemnities, and kill-fee omissions in custom pasted agreements.</p>
+        </li>
+        <li>
+          <div class="stop-title">Stop 4 · backend/server.py (FastAPI Endpoints &amp; Static Mount)</div>
+          <p>Exposes <code>GET /api/presets</code> and <code>POST /api/analyze</code> with Pydantic request validation so both local Python runners and static browser deployments behave identically.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 4. WHERE TO CHANGE THINGS -->
+    <section class="section-card">
+      <h2>4. Where to Change Things (Reusable Practice Guide)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>What You Want to Change</th>
+            <th>File &amp; Symbol</th>
+            <th>How to Modify &amp; Verify</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Add a new real-world contract preset (e.g., Gym Membership or Co-Founder Vesting)</td>
+            <td><code>backend/clause_engine.py</code> → <code>PRESET_CONTRACTS</code></td>
+            <td>Append a dictionary with <code>clauses[]</code> and run <code>pytest tests/test_clauselens.py</code>.</td>
+          </tr>
+          <tr>
+            <td>Add a 4th Negotiation Stance (e.g., <code>Walk-Away Ultimatum</code>)</td>
+            <td><code>public/index.html</code> + <code>public/app.js</code> → <code>STANCE_META</code></td>
+            <td>Add a button with <code>data-stance="ultimatum"</code> and a matching key in <code>redlines</code>.</td>
+          </tr>
+          <tr>
+            <td>Customize the Counter-Offer Email template framing</td>
+            <td><code>public/app.js</code> → <code>buildCounterOfferEmail()</code></td>
+            <td>Edit the salutation and sign-off blocks per stance and click <code>Copy Counter-Proposal</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    const btn = document.getElementById("theme-btn");
+    btn.addEventListener("click", () => {
+      const cur = document.documentElement.getAttribute("data-theme");
+      const next = cur === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", next);
+    });
+    document.querySelectorAll("#route-list li").forEach(li => {
+      li.addEventListener("click", () => {
+        document.querySelectorAll("#route-list li").forEach(el => el.classList.remove("active"));
+        li.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
